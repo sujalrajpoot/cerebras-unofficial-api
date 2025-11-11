@@ -37,10 +37,10 @@ pip install -r requirements.txt
 - You can initialize the CerebrasUnofficial class with cookies.
 
 ```python
-from cerebras_unofficial import Cerebras_Unofficial
+from cerebras_unofficial import Cerebras
 
 if __name__ == "__main__":
-   AI = Cerebras_Unofficial('your_cookies')
+   AI = Cerebras('your_cookies')
    print(AI.chat("Hi"))
 ```
 
