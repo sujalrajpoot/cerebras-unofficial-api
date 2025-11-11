@@ -17,11 +17,10 @@ class Cerebras:
     """
     Client to interact with the Cerebras AI API for chat completions.
     Attributes:
-        api_key (str): The API key for authentication.
-        config_file_path (str): Path to the configuration file storing the API key.
+        AVAILABLE_MODELS (list): List of available models for chat completions.
     Methods:
         refresh_api_key(): Refreshes the API key by making a request to the Cerebras API endpoint.
-        chat(message, system_prompt, model, temperature, max_tokens, timeout): Sends a chat message to the model and returns the response.
+        generate(message, system_prompt, model, temperature, max_tokens, timeout): Sends a chat message to the model and returns the response.
     """
     AVAILABLE_MODELS = [
         "llama3.1-8b",
@@ -43,7 +42,17 @@ class Cerebras:
         top_p: float = 0.9,
         system_prompt: str = "You are a helpful assistant.",
     ) -> None:
-        """Initialize the Cerebras client."""
+        """Initialize the Cerebras client.
+        
+        Parameters:
+            - cookies_or_api_key (str, optional): Cookies string or API key for authentication.
+            - max_tokens (int): Maximum number of tokens in the response.
+            - timeout (int): Timeout for API requests in seconds.
+            - model (str): Model to use for chat completions.
+            - temperature (float): Sampling temperature for response generation.
+            - top_p (float): Nucleus sampling parameter.
+            - system_prompt (str): System prompt to guide the model's behavior.
+        """
 
         self.cookies_or_api_key = cookies_or_api_key
         self.system_prompt = system_prompt
